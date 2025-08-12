@@ -1,166 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Property</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #d8c2a8; /* beige background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-        .container {
-            width: 400px;
-            background: transparent;
-            padding: 20px;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 30px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-size: 14px;
-        }
-
-        input[type="text"],
-        input[type="number"],
-        textarea {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: none;
-            outline: none;
-            background-color: #fff;
-            font-size: 14px;
-        }
-
-        textarea {
-            resize: vertical;
-        }
-
-        .upload-section {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 15px;
-        }
-
-        .upload-btn {
-            display: inline-flex;
-            justify-content: center;
-            align-items: center;
-            width: 25px;
-            height: 25px;
-            background-color: white;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-        }
-
-        .preview {
-            margin-top: 10px;
-            width: 100%;
-            height: auto;
-            display: none;
-        }
-
-        button.submit-btn {
-            width: 100%;
-            padding: 10px;
-            background-color: black;
-            color: white;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        button.submit-btn:hover {
-            background-color: #333;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add a Property</title>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
 
-    <div class="container">
-        <h1>Add Property</h1>
-        <form id="propertyForm">
-            <label for="title">Title</label>
-            <input type="text" id="title" name="title" required>
+  <!-- Header -->
+  <header>
+    <h1> RentHome</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Property</a>
+      <a href="#">User Account</a>
+    </nav>
+  </header>
 
-            <label for="description">Description</label>
-            <textarea id="description" name="description" rows="2" required></textarea>
+  <!-- Add Property Form -->
+  <div class="container">
+    <h2>Add a Property</h2>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" placeholder="Cozy 2-bedroom apartment" required />
+      </div>
 
-            <label for="price">Price</label>
-            <input type="number" id="price" name="price" required>
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Enter property details..." required></textarea>
+      </div>
 
-            <label for="location">Location</label>
-            <input type="text" id="location" name="location" required>
+      <div class="form-group">
+        <label for="price">Price (USD)</label>
+        <input type="number" id="price" name="price" placeholder="1000" required />
+      </div>
 
-            <div class="upload-section">
-                <span>Add property/upload image</span>
-                <label for="imageUpload" class="upload-btn">+</label>
-                <input type="file" id="imageUpload" accept="image/*" style="display:none">
-            </div>
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" placeholder="New York, NY" required />
+      </div>
 
-            <img id="previewImage" class="preview" alt="Preview">
+      <div class="form-group">
+        <label for="image">Upload Image</label>
+        <input type="file" id="image" name="image" accept="image/*" />
+      </div>
 
-            <button type="submit" class="submit-btn">Submit Property</button>
-        </form>
-    </div>
-
-    <script>
-        const imageUpload = document.getElementById('imageUpload');
-        const previewImage = document.getElementById('previewImage');
-        const form = document.getElementById('propertyForm');
-
-        imageUpload.addEventListener('change', function() {
-            const file = this.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    previewImage.src = e.target.result;
-                    previewImage.style.display = "block";
-                }
-                reader.readAsDataURL(file);
-            }
-        });
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const formData = new FormData(form);
-            const file = imageUpload.files[0];
-            if (file) {
-                formData.append('image', file);
-            }
-
-            // Example: sending to backend (replace with your API endpoint)
-            fetch('https://your-backend-api.com/add-property', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert("Property submitted successfully!");
-                form.reset();
-                previewImage.style.display = "none";
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("Something went wrong.");
-            });
-        });
-    </script>
+      <button type="submit" class="submit-btn">Submit Property</button>
+    </form>
+  </div>
 
 </body>
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-section contact">
+      <p>123 Main street, New York, NY</p>
+      <p>Email: info@renthome.com</p>
+      <p>Phone: (555) 123-4567</p>
+    </div>
+
+    <div class="footer-section rights">
+      <p>&copy; 2025 RentHome. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</html>
