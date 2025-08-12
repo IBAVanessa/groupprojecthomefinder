@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add a Property</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1> RentHome</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+      <a href="#">Property</a>
+      <a href="#">User Account</a>
+    </nav>
+  </header>
+
+  <!-- Add Property Form -->
+  <div class="container">
+    <h2>Add a Property</h2>
+    <form>
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" name="title" placeholder="Cozy 2-bedroom apartment" required />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Enter property details..." required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price (USD)</label>
+        <input type="number" id="price" name="price" placeholder="1000" required />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" placeholder="New York, NY" required />
+      </div>
+
+      <div class="form-group">
+        <label for="image">Upload Image</label>
+        <input type="file" id="image" name="image" accept="image/*" />
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Property</button>
+    </form>
+  </div>
+
+</body>
+<!-- Footer -->
+<footer>
+  <div class="footer-container">
+    <div class="footer-section contact">
+      <p>123 Main street, New York, NY</p>
+      <p>Email: info@renthome.com</p>
+      <p>Phone: (555) 123-4567</p>
+    </div>
+
+    <div class="footer-section rights">
+      <p>&copy; 2025 RentHome. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+</html>
