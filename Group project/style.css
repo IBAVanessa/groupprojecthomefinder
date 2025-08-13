@@ -96,7 +96,7 @@ h1, p {
   margin: 0.5rem 0;
 }
 .property-card p {
-  color: var(--light-brown);
+  color: white;
   font-weight: bold;
 }
 .load-more {
@@ -128,3 +128,4 @@ h1, p {
   font-size: 0.9rem;
 
 }
+
