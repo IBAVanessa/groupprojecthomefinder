@@ -1,6 +1,7 @@
 :root {
   --cream: #f5f0eb;
-  --light-beige: #e6dcd0;
+  --light-beige: #e6dcd0; 
+
   --beige: #d3bfa6;
   --light-brown: #a87c58;
   --brown: #6b4b2e;
@@ -36,6 +37,30 @@
 .main-header nav ul li a:hover {
   color: #f4b400;
 }
+/* Search Bar Styles */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background: #e6dcd0;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #d3bfa6;
+}
+.search-bar input, 
+.search-bar select, 
+.search-bar button {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.search-bar button {
+    background: #a87c58;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
